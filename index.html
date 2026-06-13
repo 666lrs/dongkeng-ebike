@@ -32,7 +32,7 @@ body{
   line-height:1.6;
   min-height:100vh;
 }
-.container{max-width:1200px;margin:0 auto;padding:0 20px}
+.container{max-width:1400px;margin:0 auto;padding:0 20px}
 .header{
   background:var(--surface);
   padding:20px 0;
@@ -122,13 +122,20 @@ body{
   color:var(--text-white);
   font-weight:500;
 }
+.notice-bar{
+  background:linear-gradient(135deg, var(--accent), #ffb700);
+  color:#1a1a2e;
+  padding:12px 20px;
+  text-align:center;
+  font-weight:600;
+}
 .services{
-  padding:80px 0;
+  padding:60px 0;
   background:var(--surface);
 }
 .section-title{
   text-align:center;
-  margin-bottom:50px;
+  margin-bottom:40px;
 }
 .section-title h2{
   font-size:2rem;
@@ -141,14 +148,14 @@ body{
 }
 .services-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
-  gap:30px;
+  grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
+  gap:25px;
 }
 .service-card{
   background:var(--text-white);
   border:1px solid var(--border);
   border-radius:var(--radius);
-  padding:30px;
+  padding:25px;
   text-align:center;
   transition:all .3s;
 }
@@ -158,31 +165,58 @@ body{
   border-color:var(--primary);
 }
 .service-icon{
-  width:80px;height:80px;
+  width:70px;height:70px;
   background:linear-gradient(135deg, rgba(233,69,96,0.1), rgba(233,69,96,0.05));
   border-radius:50%;
   display:flex;align-items:center;justify-content:center;
-  margin:0 auto 20px;
-  font-size:2.5rem;
+  margin:0 auto 15px;
+  font-size:2rem;
 }
 .service-card h3{
-  font-size:1.3rem;
+  font-size:1.2rem;
   font-weight:700;
   color:var(--text);
-  margin-bottom:12px;
+  margin-bottom:10px;
 }
 .service-card p{
   color:var(--text-light);
-  font-size:.95rem;
+  font-size:.9rem;
 }
 .products{
-  padding:80px 0;
+  padding:60px 0;
   background:linear-gradient(135deg, #f8f9fa, #fff);
+}
+.category-section{
+  margin-bottom:50px;
+}
+.category-header{
+  display:flex;align-items:center;gap:15px;
+  margin-bottom:25px;
+  padding-bottom:15px;
+  border-bottom:3px solid var(--primary);
+}
+.category-badge{
+  background:linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color:var(--text-white);
+  padding:8px 20px;
+  border-radius:50px;
+  font-weight:700;
+  font-size:.9rem;
+}
+.category-header h3{
+  font-size:1.5rem;
+  font-weight:700;
+  color:var(--text);
+}
+.category-desc{
+  color:var(--text-light);
+  font-size:.95rem;
+  margin-bottom:20px;
 }
 .products-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
-  gap:25px;
+  grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+  gap:20px;
 }
 .product-card{
   background:var(--text-white);
@@ -190,69 +224,64 @@ body{
   overflow:hidden;
   box-shadow:0 4px 20px rgba(0,0,0,0.08);
   transition:all .3s;
+  border:1px solid #eee;
 }
 .product-card:hover{
   transform:translateY(-5px);
   box-shadow:0 10px 30px rgba(0,0,0,0.15);
 }
 .product-img{
-  height:200px;
+  height:180px;
   background:linear-gradient(135deg, #e9ecef, #dee2e6);
   display:flex;align-items:center;justify-content:center;
-  font-size:4rem;
+  font-size:3.5rem;
+  position:relative;
+}
+.product-tag{
+  position:absolute;top:10px;right:10px;
+  background:var(--primary);
+  color:var(--text-white);
+  padding:4px 12px;
+  border-radius:20px;
+  font-size:.75rem;
+  font-weight:600;
+}
+.product-tag.sale{
+  background:linear-gradient(135deg, #ff4757, #ff6b81);
 }
 .product-info{
   padding:20px;
 }
-.product-info h3{
+.product-info h4{
   font-size:1.1rem;
   font-weight:700;
   color:var(--text);
   margin-bottom:8px;
 }
-.product-info p{
+.product-info .specs{
   color:var(--text-light);
-  font-size:.9rem;
+  font-size:.85rem;
   margin-bottom:12px;
+  line-height:1.5;
 }
 .product-price{
-  font-size:1.4rem;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.price-current{
+  font-size:1.5rem;
   font-weight:700;
   color:var(--primary);
 }
-.advantages{
-  padding:80px 0;
-  background:var(--surface);
-}
-.advantages-list{
-  display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
-  gap:30px;
-}
-.advantage-item{
-  text-align:center;
-}
-.advantage-icon{
-  width:60px;height:60px;
-  background:linear-gradient(135deg, var(--primary), var(--primary-dark));
-  border-radius:12px;
-  display:flex;align-items:center;justify-content:center;
-  margin:0 auto 15px;
-  font-size:1.5rem;
-  color:var(--text-white);
-}
-.advantage-item h3{
-  font-size:1.1rem;
-  font-weight:700;
-  color:var(--text);
-  margin-bottom:8px;
-}
-.advantage-item p{
+.price-original{
+  font-size:.95rem;
   color:var(--text-light);
-  font-size:.9rem;
+  text-decoration:line-through;
 }
 .location{
-  padding:80px 0;
+  padding:60px 0;
   background:linear-gradient(135deg, var(--secondary), #1a1a2e);
   color:var(--text-white);
 }
@@ -299,7 +328,7 @@ body{
   border:0;
 }
 .cta{
-  padding:80px 0;
+  padding:60px 0;
   background:var(--surface);
   text-align:center;
 }
@@ -412,6 +441,7 @@ body{
   .hero h2{font-size:2rem}
   .location-content{grid-template-columns:1fr}
   .cta-buttons{flex-direction:column;align-items:center}
+  .products-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -436,11 +466,14 @@ body{
   </div>
 </header>
 
+<div class="notice-bar">
+  鈿狅笍 娓╅Θ鎻愮ず锛氫笁杞溅浠锋牸涓虹┖杞︽灦浠锋牸锛屼笉鍚數姹犲厖鐢靛櫒锛涗袱杞溅缁埅涓哄疄楠屽鐞嗚鍊硷紝瀹為檯閲岀▼鍙楄矾鍐点€佽浇閲嶃€佸ぉ姘斿奖鍝?</div>
+
 <section class="hero">
   <div class="container">
     <div class="hero-content">
       <h2>涓撲笟鐢靛姩杞︽湇鍔?<span>鍝佽川淇濋殰</span></h2>
-      <p>閿€鍞?路 缁翠慨 路 閰嶄欢 路 浠ユ棫鎹㈡柊 路 涓婄墝鏈嶅姟</p>
+      <p>閲戠 路 鍙伴搩 路 灏忓垁 路 鐢靛姩涓夎疆杞?| 璇氫俊缁忚惀 路 涓€绔欏紡鏈嶅姟</p>
       <div class="hero-badges">
         <div class="badge">鉁?姝ｅ搧淇濋殰</div>
         <div class="badge">鉁?涓撲笟缁翠慨</div>
@@ -461,7 +494,7 @@ body{
       <div class="service-card">
         <div class="service-icon">馃浀</div>
         <h3>鐢靛姩杞﹂攢鍞?/h3>
-        <p>鍝佺墝榻愬叏锛屾寮忓鏍凤紝鏂拌溅涓婄墝锛岃川閲忎繚璇?/p>
+        <p>閲戠銆佸彴閾冦€佸皬鍒€鐭ュ悕鍝佺墝锛屾寮忛綈鍏紝璐ㄩ噺淇濊瘉</p>
       </div>
       <div class="service-card">
         <div class="service-icon">馃敡</div>
@@ -486,83 +519,404 @@ body{
   <div class="container">
     <div class="section-title">
       <h2>鐑攢杞﹀瀷</h2>
-      <p>鍝佽川涔嬮€夛紝鍑鸿鏃犲咖</p>
+      <p>鍝佺墝榻愬叏锛屽搧璐ㄤ繚闅滐紝鎬绘湁涓€娆鹃€傚悎鎮?/p>
     </div>
-    <div class="products-grid">
-      <div class="product-card">
-        <div class="product-img">馃浀</div>
-        <div class="product-info">
-          <h3>璞崕鐢靛姩鎽╂墭杞?/h3>
-          <p>缁埅100鍏噷+ 路 楂橀€熺數鏈?/p>
-          <div class="product-price">楼2999璧?/div>
-        </div>
-      </div>
-      <div class="product-card">
-        <div class="product-img">馃弽锔?/div>
-        <div class="product-info">
-          <h3>杞讳究鐢靛姩韪忔澘</h3>
-          <p>杞诲阀渚挎惡 路 鍩庡競閫氬嫟棣栭€?/p>
-          <div class="product-price">楼1999璧?/div>
-        </div>
-      </div>
-      <div class="product-card">
-        <div class="product-img">馃毑</div>
-        <div class="product-info">
-          <h3>鐢靛姩鑷杞?/h3>
-          <p>鍥芥爣杞﹀瀷 路 涓婄墝鏃犲咖</p>
-          <div class="product-price">楼1299璧?/div>
-        </div>
-      </div>
-      <div class="product-card">
-        <div class="product-img">馃攱</div>
-        <div class="product-info">
-          <h3>鍝佺墝鐢垫睜</h3>
-          <p>瓒呭▉/澶╄兘鍘熻鐢垫睜</p>
-          <div class="product-price">楼399璧?/div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<section class="advantages">
-  <div class="container">
-    <div class="section-title">
-      <h2>涓轰粈涔堥€夋嫨鎴戜滑</h2>
-      <p>璇氫俊缁忚惀锛屽鎴疯嚦涓?/p>
+    <!-- 閲戠鐢靛姩杞?-->
+    <div class="category-section">
+      <div class="category-header">
+        <span class="category-badge">閲戠鍝佺墝</span>
+        <h3>閲戠鐢靛姩杞?2026 鍏ㄧ郴鍝侀壌</h3>
+      </div>
+      <p class="category-desc">绉戞妧椹卞姩锛屽搧璐ㄨ嚦涓?| 瑕嗙洊鍏ラ棬銆佽繘闃躲€佹棗鑸板叏绛夌骇 | 鏍″洯浠ｆ銆佽亴鍦洪€氬嫟銆佺煭閫斿嚭娓稿叏鍦烘櫙</p>
+      <div class="products-grid">
+        <div class="product-card">
+          <div class="product-img">
+            馃弽锔?            <span class="product-tag">鏃楄埌</span>
+          </div>
+          <div class="product-info">
+            <h4>閲戠 F80TS</h4>
+            <p class="specs">72V20Ah 澶╄兘鐢垫睜 | 12瀵稿崐鐑啍杞儙 | 鐢靛姩搴у寘<br>缁埅 75-80km | 闈㈠悜绉戞妧鐖卞ソ鑰?/p>
+            <div class="product-price">
+              <span class="price-current">楼3999</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img">
+            馃浀
+            <span class="product-tag">鏅鸿兘</span>
+          </div>
+          <div class="product-info">
+            <h4>閲戠鐏靛彲</h4>
+            <p class="specs">60V 澶╄兘鐢垫睜 | 椋炴満鎶婅溅澶?| APP瑙ｉ攣+鏅鸿兘鎺ц溅<br>缁埅 70km | 閫傞厤閮藉競鐧介銆佸勾杞诲搴?/p>
+            <div class="product-price">
+              <span class="price-current">楼2399</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img">
+            鈿?            <span class="product-tag">娼祦</span>
+          </div>
+          <div class="product-info">
+            <h4>閲戠璧涘ゥ</h4>
+            <p class="specs">鍓嶅悗鍙岀鍒?| 娼祦椋庢牸 | 绾挎潯鍑屽帀閰嶈壊涓€?br>缁埅 50-55km | 闈㈠悜骞磋交娼祦缇や綋</p>
+            <div class="product-price">
+              <span class="price-current">楼2999</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img">
+            馃毑
+            <span class="product-tag">鍏ラ棬</span>
+          </div>
+          <div class="product-info">
+            <h4>閲戠浼樼編</h4>
+            <p class="specs">48V20Ah 鐢垫睜 | 鍓嶅悗榧撳埞锛堢淮鎶ゆ垚鏈綆锛?br>缁埅 60km | 瀛︾敓銆佺煭閫旈€氬嫟棣栭€?/p>
+            <div class="product-price">
+              <span class="price-current">楼1899</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="advantages-list">
-      <div class="advantage-item">
-        <div class="advantage-icon">馃弳</div>
-        <h3>鍝佺墝鎺堟潈</h3>
-        <p>姝ｈ娓犻亾锛屽搧璐ㄤ繚璇?/p>
+
+    <!-- 鐩涗匠杞﹁绮鹃€?-->
+    <div class="category-section">
+      <div class="category-header">
+        <span class="category-badge">鐩涗匠绮鹃€?/span>
+        <h3>涓滃潙鑼跺北鐩涗匠杞﹁绾夸笅绮鹃€夋</h3>
       </div>
-      <div class="advantage-item">
-        <div class="advantage-icon">馃懆鈥嶐煍?/div>
-        <h3>涓撲笟鎶€甯?/h3>
-        <p>鍗佸勾缁忛獙锛屾妧鏈繃纭?/p>
-      </div>
-      <div class="advantage-item">
-        <div class="advantage-icon">馃挵</div>
-        <h3>浠锋牸閫忔槑</h3>
-        <p>鏄庣爜鏍囦环锛岀鍙熸棤娆?/p>
-      </div>
-      <div class="advantage-item">
-        <div class="advantage-icon">馃洝锔?/div>
-        <h3>鍞悗淇濋殰</h3>
-        <p>璐ㄤ繚鏈熷唴鍏嶈垂缁翠慨</p>
-      </div>
-      <div class="advantage-item">
-        <div class="advantage-icon">鈿?/div>
-        <h3>蹇€熸湇鍔?/h3>
-        <p>灏忎慨绔嬬瓑鍙彇</p>
-      </div>
-      <div class="advantage-item">
-        <div class="advantage-icon">馃搷</div>
-        <h3>浜ら€氫究鍒?/h3>
-        <p>浣嶇疆浼樿秺锛屽仠杞︽柟渚?/p>
+      <p class="category-desc">璇氫俊缁忚惀 | 涓€绔欏紡璐溅涓庡敭鍚庢湇鍔?| 绮惧噯鍖归厤涓嶅悓娑堣垂浜虹兢</p>
+      <div class="products-grid">
+        <div class="product-card">
+          <div class="product-img">
+            馃憫
+          </div>
+          <div class="product-info">
+            <h4>鐏垫偊</h4>
+            <p class="specs">澶嶅彜椋庢牸 | APP鏅鸿兘鎺ц溅 | TCS闃蹭晶婊戠郴缁?br>缁埅绾?50km | 閮藉競绮捐嫳棣栭€?/p>
+            <div class="product-price">
+              <span class="price-current">楼2799</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img">
+            馃捈
+          </div>
+          <div class="product-info">
+            <h4>蹇冩偊</h4>
+            <p class="specs">60V 鐢垫睜 | 瀹炴祴缁埅 65-70km | 鍔ㄥ姏寮哄姴<br>涓婄彮鏃忎富鍔涗唬姝ラ€夋嫨</p>
+            <div class="product-price">
+              <span class="price-current">楼2699璧?/span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img">
+            馃崕
+          </div>
+          <div class="product-info">
+            <h4>铚滈洩</h4>
+            <p class="specs">48V20Ah 缁埅70km | 鍓嶇鍚庨紦鍒跺姩 | APP浜掕仈<br>鐢靛姩搴у寘+USB鍏呯數 | 閮藉競濂虫€т笓灞?/p>
+            <div class="product-price">
+              <span class="price-current">楼2899</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img">
+            馃幆
+          </div>
+          <div class="product-info">
+            <h4>浼樹箰</h4>
+            <p class="specs">澶╄兘 48V20Ah 鐢垫睜 | 缁埅 60km<br>鎿嶄綔绠€鍗?| 楂樻€т环姣斿姟瀹炰箣閫?/p>
+            <div class="product-price">
+              <span class="price-current">楼1699</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img">
+            馃洅
+          </div>
+          <div class="product-info">
+            <h4>鏋滀箰</h4>
+            <p class="specs">48V 杞讳究鐢垫睜 | 缁埅 35km | 杞﹁韩灏忓阀鐏垫椿<br>涔拌彍銆佹帴濞冪殑鏅€氬搴敤鎴烽閫?/p>
+            <div class="product-price">
+              <span class="price-current">楼1399</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+
+    <!-- 鍙伴搩鐢靛姩杞?-->
+    <div class="category-section">
+      <div class="category-header">
+        <span class="category-badge">鍙伴搩鍝佺墝</span>
+        <h3>鍙伴搩鐢靛姩杞?鏅鸿兘浜掕仈 路 瀹夊叏闃叉姢 路 闀跨画鑸?/h3>
+      </div>
+      <p class="category-desc">NFC鍒峰崱瑙ｉ攣 | 鎵嬫満APP杩滅▼鎺ц溅 | GPS瀹氫綅闃茬洍 | TCS闃蹭晶婊?| HDC闄″潯缂撻檷</p>
+      <div class="products-grid">
+        <div class="product-card">
+          <div class="product-img">
+            馃殌
+            <span class="product-tag sale">鐩撮檷1100</span>
+          </div>
+          <div class="product-info">
+            <h4>鍙伴搩鑻嶇┕</h4>
+            <p class="specs">椤堕厤鏃楄埌 | 杩涘彛椤剁骇鍒硅溅娉?| 鏅鸿兘浜掓劅鍔熻兘<br>72V鐢垫睜 | 缁埅80km | 楂樼鎬ц兘</p>
+            <div class="product-price">
+              <span class="price-current">楼3899</span>
+              <span class="price-original">鍘熶环楼4999</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img">
+            馃
+            <span class="product-tag sale">鐩撮檷700</span>
+          </div>
+          <div class="product-info">
+            <h4>鍙伴搩璧ゅ厰</h4>
+            <p class="specs">72V20Ah | 缁埅80km | 鏈虹敳椋庡瑙?br>鍓嶆弧鐩樺弻纰熷埞+TCS闃蹭晶婊?| 鍔ㄥ姏寮烘倣</p>
+            <div class="product-price">
+              <span class="price-current">楼3699</span>
+              <span class="price-original">鍘熶环楼4399</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img">
+            馃
+            <span class="product-tag sale">鐩撮檷400</span>
+          </div>
+          <div class="product-info">
+            <h4>鍙伴搩铦磋澏</h4>
+            <p class="specs">60V20Ah | 缁埅70km | 浠跨敓铦剁郴澶嶅彜澶栬<br>鍓嶅悗鍙岀鍒?| 鍏ㄦ櫤鑳介厤缃媺婊?/p>
+            <div class="product-price">
+              <span class="price-current">楼3899</span>
+              <span class="price-original">鍘熶环楼4299</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img">
+            馃彌锔?            <span class="product-tag sale">鐩撮檷400</span>
+          </div>
+          <div class="product-info">
+            <h4>鍙伴搩闆呭吀</h4>
+            <p class="specs">澶嶅彜澶ф皵椋庢牸 | 鐢靛姩搴у寘 | 杈规拺鏂數<br>鍏ㄥ睆浠〃 | 缁煎悎浣撻獙鍏ㄩ潰</p>
+            <div class="product-price">
+              <span class="price-current">楼3899</span>
+              <span class="price-original">鍘熶环楼4299</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img">
+            馃挄
+            <span class="product-tag sale">鐩撮檷800</span>
+          </div>
+          <div class="product-info">
+            <h4>鍙伴搩鍒濇亱</h4>
+            <p class="specs">48V20Ah | 缁埅55km | 閾濋晛鍚堥噾杞﹁韩<br>鍓嶇鍚庨紦鍒跺姩 | 閫傞厤骞磋交濂虫€?/p>
+            <div class="product-price">
+              <span class="price-current">楼2899</span>
+              <span class="price-original">鍘熶环楼3699</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img">
+            馃崌
+          </div>
+          <div class="product-info">
+            <h4>鍙伴搩澶ф灉绮?/h4>
+            <p class="specs">60V20Ah | 缁埅80km | 閾濋晛鍚堥噾杞﹁韩<br>閫氬嫟钀屽疇搴ч┚ | 鍙屽畨鍏ㄧ郴缁?/p>
+            <div class="product-price">
+              <span class="price-current">楼2399</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img">
+            猸?          </div>
+          <div class="product-info">
+            <h4>鍙伴搩鍦嗗渾</h4>
+            <p class="specs">60V20Ah | 缁埅绾?0km | 鏅鸿兘閰嶇疆榻愬叏<br>缁忓吀閮藉競閫氬嫟杞﹀瀷</p>
+            <div class="product-price">
+              <span class="price-current">楼2499</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img">
+            馃敭
+          </div>
+          <div class="product-info">
+            <h4>鍙伴搩Q寮?/h4>
+            <p class="specs">48V12Ah | 缁埅35km | 杞﹁韩鍦嗘鼎灏忓阀<br>鍏ラ棬鐭€旀 | 鍩虹APP瑙ｉ攣</p>
+            <div class="product-price">
+              <span class="price-current">楼1599</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 灏忓垁鐢靛姩杞?-->
+    <div class="category-section">
+      <div class="category-header">
+        <span class="category-badge">灏忓垁鍝佺墝</span>
+        <h3>灏忓垁鐢靛姩杞?闄愭椂澶у箙闄嶄环</h3>
+      </div>
+      <p class="category-desc">鍏ㄧ郴鏀寔APP鏅鸿兘瑙ｉ攣锛堝憡鍒疄浣撻挜鍖欙級 | 瀹炵敤鎬т笌琛岃溅瀹夊叏骞堕噸</p>
+      <div class="products-grid">
+        <div class="product-card">
+          <div class="product-img">
+            馃殌
+            <span class="product-tag sale">鐩撮檷500</span>
+          </div>
+          <div class="product-info">
+            <h4>绉戞妧鏃楄埌娆?/h4>
+            <p class="specs">鍓嶅悗鍙岀鍒?| TCS闃蹭晶婊戠郴缁?| 涓€閿數鍔ㄥ骇鍖?br>瀹夊叏涓庝究鎹烽厤缃媺婊?/p>
+            <div class="product-price">
+              <span class="price-current">楼3199</span>
+              <span class="price-original">鍘熶环楼3699</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img">
+            鈿?            <span class="product-tag sale">鐩撮檷400</span>
+          </div>
+          <div class="product-info">
+            <h4>鎬т环姣旂鏉€娆?/h4>
+            <p class="specs">60V20A鐢垫睜 | 缁埅70km | 鍓嶅悗鍙岀鍒?br>缁煎悎鎬ц兘鍧囪　 | 涓诲姏璧伴噺杞﹀瀷</p>
+            <div class="product-price">
+              <span class="price-current">楼2899</span>
+              <span class="price-original">鍘熶环楼3299</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img">
+            馃毑
+            <span class="product-tag sale">鐩撮檷300</span>
+          </div>
+          <div class="product-info">
+            <h4>鍩虹閫氬嫟娆?/h4>
+            <p class="specs">48V20A鐢垫睜 | 缁埅绾?5km | 鍓嶅悗鍙屽埞<br>娓呮柊钃?濂舵补鐧?闆呰嚧鐏颁笁鑹插彲閫?/p>
+            <div class="product-price">
+              <span class="price-current">楼2399</span>
+              <span class="price-original">鍘熶环楼2699</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img">
+            馃挵
+          </div>
+          <div class="product-info">
+            <h4>鍏ラ棬缁忔祹娆?/h4>
+            <p class="specs">48V20A鐢垫睜 | 缁埅绾?0km | 杞﹁韩杞诲阀<br>涔拌彍銆佺煭閫斾唬姝ラ閫?/p>
+            <div class="product-price">
+              <span class="price-current">楼1899</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 鐢靛姩涓夎疆杞?-->
+    <div class="category-section">
+      <div class="category-header">
+        <span class="category-badge">鍟嗙敤涓夎疆</span>
+        <h3>鍏ㄨ兘鐢靛姩涓夎疆杞?鍟嗙敤璐ц繍绯诲垪</h3>
+      </div>
+      <p class="category-desc">鈿狅笍 閲嶈鎻愮ず锛氫互涓嬩环鏍煎潎涓虹┖杞︽灦浠锋牸锛屼笉鍚數姹犮€佸厖鐢靛櫒绛夐厤浠?/p>
+      <div class="products-grid">
+        <div class="product-card">
+          <div class="product-img">
+            馃摝
+            <span class="product-tag">閲嶈浇鏃楄埌</span>
+          </div>
+          <div class="product-info">
+            <h4>1.8绫冲揩閫掕溅</h4>
+            <p class="specs">杞﹀帰 180脳110脳130cm | 棰濆畾杞介噸 800kg<br>鍙€夐厤璐ф灦銆佹壂鐮佹敮鏋?| 澶у姛鐜囩埇鍧″己</p>
+            <div class="product-price">
+              <span class="price-current">楼4699</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img">
+            馃殯
+          </div>
+          <div class="product-info">
+            <h4>1.8绫充笁寮€闂?/h4>
+            <p class="specs">杞﹀帰 180脳110脳40cm | 棰濆畾杞介噸 750kg<br>鍔犲己杞︽灦+鍔犲帤閽㈡澘 | 鍧氬浐鑰愮敤</p>
+            <div class="product-price">
+              <span class="price-current">楼3300</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img">
+            馃摝
+          </div>
+          <div class="product-info">
+            <h4>1.5绫冲揩閫掕溅</h4>
+            <p class="specs">鍏ㄥ皝闂帰浣?150脳100脳120cm | 棰濆畾杞介噸 600kg<br>闃叉姢璐х墿鍏嶅彈鏃ユ檼闆ㄦ穻 | 鐗╂祦涓撶敤</p>
+            <div class="product-price">
+              <span class="price-current">楼3500璧?/span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img">
+            馃殮
+          </div>
+          <div class="product-info">
+            <h4>1.6绫充笁寮€闂?/h4>
+            <p class="specs">杞﹀帰鍔犻暱鍗囩骇 | 棰濆畾杞介噸 600kg<br>涓瀷鍟嗛摵杩涜揣銆佺敓椴滈厤閫侀閫?/p>
+            <div class="product-price">
+              <span class="price-current">楼3000璧?/span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img">
+            馃浕
+          </div>
+          <div class="product-info">
+            <h4>1.5绫充笁寮€闂?/h4>
+            <p class="specs">杞﹀帰 150脳100脳40cm | 棰濆畾杞介噸 500kg<br>榛勯噾閫氱敤灏哄 | 涓夐潰寮€闂ㄨ鍗搁珮鏁?/p>
+            <div class="product-price">
+              <span class="price-current">楼2500璧?/span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img">
+            馃彧
+          </div>
+          <div class="product-info">
+            <h4>1绫冲钩鏉胯溅</h4>
+            <p class="specs">杞﹀帰 100脳70cm | 棰濆畾杞介噸 300kg<br>杞﹁韩灏忓阀鐏垫椿 | 寮€鏀惧紡骞虫澘瑁呭嵏渚挎嵎</p>
+            <div class="product-price">
+              <span class="price-current">楼2200</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -624,7 +978,7 @@ body{
     <div class="qrcode-section">
       <h3>鎵爜璁块棶缃戠珯</h3>
       <div class="qrcode-container">
-        <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://666lrs.github.io/diangui-club/" alt="缃戠珯浜岀淮鐮? class="qrcode-img">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://666lrs.github.io/dongkeng-ebike/" alt="缃戠珯浜岀淮鐮? class="qrcode-img">
       </div>
       <p class="qrcode-tip">闀挎寜璇嗗埆鎴栨壂鎻忎簩缁寸爜</p>
     </div>
