@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>涓滃潙鐢靛姩杞︿笓鍗栧簵 | 閿€鍞风淮淇烽厤浠?/title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  --surface: rgba(255, 255, 255, 0.95);
+  --surface-dark: rgba(30, 30, 50, 0.9);
+  --primary: #e94560;
+  --primary-dark: #c73e54;
+  --secondary: #0f3460;
+  --accent: #ffd700;
+  --text: #1a1a2e;
+  --text-light: #666;
+  --text-white: #fff;
+  --border: rgba(233, 69, 96, 0.2);
+  --glow: 0 0 30px rgba(233, 69, 96, 0.4);
+  --radius: 16px;
+  --font: 'Noto Sans SC', sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font);
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+  min-height:100vh;
+}
+.container{max-width:1200px;margin:0 auto;padding:0 20px}
+.header{
+  background:var(--surface);
+  padding:20px 0;
+  box-shadow:0 2px 20px rgba(0,0,0,0.1);
+  position:sticky;top:0;z-index:100;
+}
+.header-inner{
+  display:flex;justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;gap:20px;
+}
+.logo{
+  display:flex;align-items:center;gap:12px;
+}
+.logo-icon{
+  width:50px;height:50px;
+  background:linear-gradient(135deg, var(--primary), var(--primary-dark));
+  border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.8rem;
+  box-shadow:var(--glow);
+}
+.logo-text h1{
+  font-size:1.5rem;
+  font-weight:700;
+  color:var(--text);
+}
+.logo-text p{
+  font-size:.85rem;
+  color:var(--text-light);
+}
+.header-contact{
+  display:flex;gap:20px;
+  align-items:center;
+}
+.phone-btn{
+  display:flex;align-items:center;gap:8px;
+  background:linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color:var(--text-white);
+  padding:12px 24px;
+  border-radius:50px;
+  text-decoration:none;
+  font-weight:600;
+  transition:all .3s;
+}
+.phone-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:var(--glow);
+}
+.hero{
+  background:linear-gradient(135deg, var(--secondary), #1a1a2e);
+  padding:80px 0;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity:.5;
+}
+.hero-content{position:relative;z-index:1}
+.hero h2{
+  font-size:2.8rem;
+  font-weight:900;
+  color:var(--text-white);
+  margin-bottom:16px;
+}
+.hero h2 span{
+  color:var(--accent);
+}
+.hero p{
+  font-size:1.2rem;
+  color:rgba(255,255,255,0.8);
+  margin-bottom:30px;
+}
+.hero-badges{
+  display:flex;justify-content:center;gap:20px;
+  flex-wrap:wrap;
+}
+.badge{
+  display:flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,0.1);
+  border:1px solid rgba(255,255,255,0.2);
+  padding:10px 20px;
+  border-radius:50px;
+  color:var(--text-white);
+  font-weight:500;
+}
+.services{
+  padding:80px 0;
+  background:var(--surface);
+}
+.section-title{
+  text-align:center;
+  margin-bottom:50px;
+}
+.section-title h2{
+  font-size:2rem;
+  font-weight:700;
+  color:var(--text);
+  margin-bottom:10px;
+}
+.section-title p{
+  color:var(--text-light);
+}
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+  gap:30px;
+}
+.service-card{
+  background:var(--text-white);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:30px;
+  text-align:center;
+  transition:all .3s;
+}
+.service-card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 20px 40px rgba(0,0,0,0.1);
+  border-color:var(--primary);
+}
+.service-icon{
+  width:80px;height:80px;
+  background:linear-gradient(135deg, rgba(233,69,96,0.1), rgba(233,69,96,0.05));
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 20px;
+  font-size:2.5rem;
+}
+.service-card h3{
+  font-size:1.3rem;
+  font-weight:700;
+  color:var(--text);
+  margin-bottom:12px;
+}
+.service-card p{
+  color:var(--text-light);
+  font-size:.95rem;
+}
+.products{
+  padding:80px 0;
+  background:linear-gradient(135deg, #f8f9fa, #fff);
+}
+.products-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
+  gap:25px;
+}
+.product-card{
+  background:var(--text-white);
+  border-radius:var(--radius);
+  overflow:hidden;
+  box-shadow:0 4px 20px rgba(0,0,0,0.08);
+  transition:all .3s;
+}
+.product-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 10px 30px rgba(0,0,0,0.15);
+}
+.product-img{
+  height:200px;
+  background:linear-gradient(135deg, #e9ecef, #dee2e6);
+  display:flex;align-items:center;justify-content:center;
+  font-size:4rem;
+}
+.product-info{
+  padding:20px;
+}
+.product-info h3{
+  font-size:1.1rem;
+  font-weight:700;
+  color:var(--text);
+  margin-bottom:8px;
+}
+.product-info p{
+  color:var(--text-light);
+  font-size:.9rem;
+  margin-bottom:12px;
+}
+.product-price{
+  font-size:1.4rem;
+  font-weight:700;
+  color:var(--primary);
+}
+.advantages{
+  padding:80px 0;
+  background:var(--surface);
+}
+.advantages-list{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+  gap:30px;
+}
+.advantage-item{
+  text-align:center;
+}
+.advantage-icon{
+  width:60px;height:60px;
+  background:linear-gradient(135deg, var(--primary), var(--primary-dark));
+  border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 15px;
+  font-size:1.5rem;
+  color:var(--text-white);
+}
+.advantage-item h3{
+  font-size:1.1rem;
+  font-weight:700;
+  color:var(--text);
+  margin-bottom:8px;
+}
+.advantage-item p{
+  color:var(--text-light);
+  font-size:.9rem;
+}
+.location{
+  padding:80px 0;
+  background:linear-gradient(135deg, var(--secondary), #1a1a2e);
+  color:var(--text-white);
+}
+.location-content{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:50px;
+  align-items:center;
+}
+.location-info h2{
+  font-size:2rem;
+  font-weight:700;
+  margin-bottom:20px;
+}
+.location-detail{
+  display:flex;align-items:flex-start;gap:15px;
+  margin-bottom:20px;
+}
+.location-detail .icon{
+  width:40px;height:40px;
+  background:rgba(255,255,255,0.1);
+  border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.2rem;
+  flex-shrink:0;
+}
+.location-detail .text h3{
+  font-size:1rem;
+  font-weight:600;
+  margin-bottom:5px;
+}
+.location-detail .text p{
+  color:rgba(255,255,255,0.7);
+  font-size:.9rem;
+}
+.map-container{
+  background:var(--text-white);
+  border-radius:var(--radius);
+  overflow:hidden;
+  height:300px;
+}
+.map-container iframe{
+  width:100%;height:100%;
+  border:0;
+}
+.cta{
+  padding:80px 0;
+  background:var(--surface);
+  text-align:center;
+}
+.cta h2{
+  font-size:2rem;
+  font-weight:700;
+  color:var(--text);
+  margin-bottom:16px;
+}
+.cta p{
+  color:var(--text-light);
+  font-size:1.1rem;
+  margin-bottom:30px;
+}
+.cta-buttons{
+  display:flex;justify-content:center;gap:20px;
+  flex-wrap:wrap;
+}
+.cta-btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:16px 32px;
+  border-radius:50px;
+  font-weight:600;
+  font-size:1rem;
+  text-decoration:none;
+  transition:all .3s;
+}
+.cta-btn.primary{
+  background:linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color:var(--text-white);
+}
+.cta-btn.primary:hover{
+  transform:translateY(-3px);
+  box-shadow:var(--glow);
+}
+.cta-btn.secondary{
+  background:var(--text-white);
+  color:var(--text);
+  border:2px solid var(--border);
+}
+.cta-btn.secondary:hover{
+  border-color:var(--primary);
+  color:var(--primary);
+}
+.qrcode-section{
+  margin-top:40px;
+  padding-top:40px;
+  border-top:1px solid var(--border);
+}
+.qrcode-section h3{
+  font-size:1.2rem;
+  color:var(--text);
+  margin-bottom:20px;
+}
+.qrcode-container{
+  display:inline-block;
+  background:var(--text-white);
+  padding:16px;
+  border-radius:12px;
+  box-shadow:0 4px 20px rgba(0,0,0,0.1);
+}
+.qrcode-img{
+  width:180px;height:180px;
+}
+.qrcode-tip{
+  margin-top:12px;
+  color:var(--text-light);
+  font-size:.9rem;
+}
+.footer{
+  background:var(--surface-dark);
+  color:var(--text-white);
+  padding:40px 0 20px;
+}
+.footer-content{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+  gap:40px;
+  margin-bottom:30px;
+}
+.footer-section h3{
+  font-size:1.1rem;
+  font-weight:700;
+  margin-bottom:15px;
+  color:var(--accent);
+}
+.footer-section p,.footer-section a{
+  color:rgba(255,255,255,0.7);
+  font-size:.9rem;
+  line-height:1.8;
+}
+.footer-section a{
+  text-decoration:none;
+  display:block;
+}
+.footer-section a:hover{
+  color:var(--primary);
+}
+.footer-bottom{
+  text-align:center;
+  padding-top:20px;
+  border-top:1px solid rgba(255,255,255,0.1);
+}
+.footer-bottom p{
+  color:rgba(255,255,255,0.5);
+  font-size:.85rem;
+}
+@media(max-width:768px){
+  .header-inner{justify-content:center;text-align:center}
+  .hero h2{font-size:2rem}
+  .location-content{grid-template-columns:1fr}
+  .cta-buttons{flex-direction:column;align-items:center}
+}
+</style>
+</head>
+<body>
+<header class="header">
+  <div class="container">
+    <div class="header-inner">
+      <div class="logo">
+        <div class="logo-icon">馃弽锔?/div>
+        <div class="logo-text">
+          <h1>涓滃潙鐢靛姩杞︿笓鍗栧簵</h1>
+          <p>閿€鍞风淮淇烽厤浠堵蜂互鏃ф崲鏂?/p>
+        </div>
+      </div>
+      <div class="header-contact">
+        <a href="tel:15876748017" class="phone-btn">
+          <span>馃摓</span>
+          <span>158-7674-8017</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <h2>涓撲笟鐢靛姩杞︽湇鍔?<span>鍝佽川淇濋殰</span></h2>
+      <p>閿€鍞?路 缁翠慨 路 閰嶄欢 路 浠ユ棫鎹㈡柊 路 涓婄墝鏈嶅姟</p>
+      <div class="hero-badges">
+        <div class="badge">鉁?姝ｅ搧淇濋殰</div>
+        <div class="badge">鉁?涓撲笟缁翠慨</div>
+        <div class="badge">鉁?鍞悗鏃犲咖</div>
+        <div class="badge">鉁?浠锋牸瀹炴儬</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services">
+  <div class="container">
+    <div class="section-title">
+      <h2>鎴戜滑鐨勬湇鍔?/h2>
+      <p>涓撲笟鍥㈤槦锛岀敤蹇冩湇鍔℃瘡涓€浣嶅鎴?/p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">馃浀</div>
+        <h3>鐢靛姩杞﹂攢鍞?/h3>
+        <p>鍝佺墝榻愬叏锛屾寮忓鏍凤紝鏂拌溅涓婄墝锛岃川閲忎繚璇?/p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">馃敡</div>
+        <h3>涓撲笟缁翠慨</h3>
+        <p>鐢佃矾缁翠慨銆佺數鏈虹淮淇€佺數姹犳洿鎹紝蹇€熻瘖鏂?/p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">馃攱</div>
+        <h3>鐢垫睜閰嶄欢</h3>
+        <p>鍘熻鐢垫睜銆佸厖鐢靛櫒銆佽疆鑳庛€佸埞杞︾墖绛夐厤浠堕綈鍏?/p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">馃攧</div>
+        <h3>浠ユ棫鎹㈡柊</h3>
+        <p>鏃ц溅鎶樹环鍥炴敹锛屾崲璐柊杞︽洿浼樻儬</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="products">
+  <div class="container">
+    <div class="section-title">
+      <h2>鐑攢杞﹀瀷</h2>
+      <p>鍝佽川涔嬮€夛紝鍑鸿鏃犲咖</p>
+    </div>
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="product-img">馃浀</div>
+        <div class="product-info">
+          <h3>璞崕鐢靛姩鎽╂墭杞?/h3>
+          <p>缁埅100鍏噷+ 路 楂橀€熺數鏈?/p>
+          <div class="product-price">楼2999璧?/div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img">馃弽锔?/div>
+        <div class="product-info">
+          <h3>杞讳究鐢靛姩韪忔澘</h3>
+          <p>杞诲阀渚挎惡 路 鍩庡競閫氬嫟棣栭€?/p>
+          <div class="product-price">楼1999璧?/div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img">馃毑</div>
+        <div class="product-info">
+          <h3>鐢靛姩鑷杞?/h3>
+          <p>鍥芥爣杞﹀瀷 路 涓婄墝鏃犲咖</p>
+          <div class="product-price">楼1299璧?/div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img">馃攱</div>
+        <div class="product-info">
+          <h3>鍝佺墝鐢垫睜</h3>
+          <p>瓒呭▉/澶╄兘鍘熻鐢垫睜</p>
+          <div class="product-price">楼399璧?/div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="advantages">
+  <div class="container">
+    <div class="section-title">
+      <h2>涓轰粈涔堥€夋嫨鎴戜滑</h2>
+      <p>璇氫俊缁忚惀锛屽鎴疯嚦涓?/p>
+    </div>
+    <div class="advantages-list">
+      <div class="advantage-item">
+        <div class="advantage-icon">馃弳</div>
+        <h3>鍝佺墝鎺堟潈</h3>
+        <p>姝ｈ娓犻亾锛屽搧璐ㄤ繚璇?/p>
+      </div>
+      <div class="advantage-item">
+        <div class="advantage-icon">馃懆鈥嶐煍?/div>
+        <h3>涓撲笟鎶€甯?/h3>
+        <p>鍗佸勾缁忛獙锛屾妧鏈繃纭?/p>
+      </div>
+      <div class="advantage-item">
+        <div class="advantage-icon">馃挵</div>
+        <h3>浠锋牸閫忔槑</h3>
+        <p>鏄庣爜鏍囦环锛岀鍙熸棤娆?/p>
+      </div>
+      <div class="advantage-item">
+        <div class="advantage-icon">馃洝锔?/div>
+        <h3>鍞悗淇濋殰</h3>
+        <p>璐ㄤ繚鏈熷唴鍏嶈垂缁翠慨</p>
+      </div>
+      <div class="advantage-item">
+        <div class="advantage-icon">鈿?/div>
+        <h3>蹇€熸湇鍔?/h3>
+        <p>灏忎慨绔嬬瓑鍙彇</p>
+      </div>
+      <div class="advantage-item">
+        <div class="advantage-icon">馃搷</div>
+        <h3>浜ら€氫究鍒?/h3>
+        <p>浣嶇疆浼樿秺锛屽仠杞︽柟渚?/p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="location">
+  <div class="container">
+    <div class="location-content">
+      <div class="location-info">
+        <h2>馃搷 搴楅摵浣嶇疆</h2>
+        <div class="location-detail">
+          <div class="icon">馃搷</div>
+          <div class="text">
+            <h3>璇︾粏鍦板潃</h3>
+            <p>骞夸笢鐪佷笢鑾炲競涓滃潙闀囦笢鍏磋タ璺?06鍙?/p>
+          </div>
+        </div>
+        <div class="location-detail">
+          <div class="icon">馃摓</div>
+          <div class="text">
+            <h3>鑱旂郴鐢佃瘽</h3>
+            <p>158-7674-8017</p>
+          </div>
+        </div>
+        <div class="location-detail">
+          <div class="icon">馃晲</div>
+          <div class="text">
+            <h3>钀ヤ笟鏃堕棿</h3>
+            <p>鍛ㄤ竴鑷冲懆鏃?08:00 - 21:00</p>
+          </div>
+        </div>
+        <div class="location-detail">
+          <div class="icon">馃殫</div>
+          <div class="text">
+            <h3>浜ら€氭寚寮?/h3>
+            <p>涓滃潙闀囦腑蹇冿紝浜ら€氫究鍒╋紝闂ㄥ墠鍙仠杞?/p>
+          </div>
+        </div>
+      </div>
+      <div class="map-container">
+        <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=113.85%2C22.95%2C113.95%2C23.05&layer=mapnik&marker=23.0%2C113.9" loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="container">
+    <h2>娆㈣繋鍏変复鏈簵</h2>
+    <p>涔拌溅銆佷慨杞︺€佹崲鐢垫睜锛屽氨鏉ヤ笢鍧戠數鍔ㄨ溅涓撳崠搴?/p>
+    <div class="cta-buttons">
+      <a href="tel:15876748017" class="cta-btn primary">
+        <span>馃摓</span>
+        <span>绔嬪嵆鍜ㄨ</span>
+      </a>
+      <a href="https://uri.amap.com/marker?position=113.9,23.0&name=涓滃潙鐢靛姩杞︿笓鍗栧簵" class="cta-btn secondary" target="_blank">
+        <span>馃椇锔?/span>
+        <span>瀵艰埅鍒板簵</span>
+      </a>
+    </div>
+    <div class="qrcode-section">
+      <h3>鎵爜璁块棶缃戠珯</h3>
+      <div class="qrcode-container">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://666lrs.github.io/diangui-club/" alt="缃戠珯浜岀淮鐮? class="qrcode-img">
+      </div>
+      <p class="qrcode-tip">闀挎寜璇嗗埆鎴栨壂鎻忎簩缁寸爜</p>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>涓滃潙鐢靛姩杞︿笓鍗栧簵</h3>
+        <p>涓撲笟鐢靛姩杞﹂攢鍞笌缁翠慨鏈嶅姟</p>
+        <p>鍝佽川淇濋殰 路 鏈嶅姟鑷充笂</p>
+      </div>
+      <div class="footer-section">
+        <h3>鏈嶅姟椤圭洰</h3>
+        <a href="#">鐢靛姩杞﹂攢鍞?/a>
+        <a href="#">涓撲笟缁翠慨</a>
+        <a href="#">鐢垫睜閰嶄欢</a>
+        <a href="#">浠ユ棫鎹㈡柊</a>
+      </div>
+      <div class="footer-section">
+        <h3>鑱旂郴鎴戜滑</h3>
+        <p>馃摓 158-7674-8017</p>
+        <p>馃搷 涓滆帪甯備笢鍧戦晣涓滃叴瑗胯矾206鍙?/p>
+        <p>馃晲 钀ヤ笟鏃堕棿: 08:00-21:00</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>漏 2024 涓滃潙鐢靛姩杞︿笓鍗栧簵 鐗堟潈鎵€鏈?/p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
